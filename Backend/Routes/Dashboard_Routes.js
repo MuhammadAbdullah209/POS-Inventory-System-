@@ -5,8 +5,8 @@ dashboardStats
 }
 from "../controllers/Dashboard_Controller.js";
 
-const router = express.Router();
+const DashboardRoutes = express.Router();
 
-router.get("/",dashboardStats);
+DashboardRoutes.get("/",dashboardStats);
 
-export default router;
+export default DashboardRoutes;

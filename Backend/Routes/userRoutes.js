@@ -1,8 +1,8 @@
 import express from "express";
 import { login } from "../controllers/userController.js";
 
-const userRouter = express.Router();
+const userRoutes = express.Router();
 
-userRouter.post("/login", login);
-export default userRouter
+userRoutes.post("/login", login);
+export default userRoutes
 //localhost:5000/Api/login

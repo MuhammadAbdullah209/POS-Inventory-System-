@@ -10,15 +10,15 @@ import {
 } from "../controllers/productController.js";
 import { isAdmin, protect } from "../Middleware/middleware.js";
 
-const router = express.Router();
-router.post("/scan", scanProduct);
+const productRoutes = express.Router();
+productRoutes.post("/scan", scanProduct);
 // CRUD Routes
-router.get("/search/:code",protect, getproductorvariant);
-router.post("/", protect, isAdmin, createProduct);
-router.get("/", getProducts);
+productRoutes.get("/search/:code",protect, getproductorvariant);
+productRoutes.post("/", protect, isAdmin, createProduct);
+productRoutes.get("/", getProducts);
 // router.get("/:id", getProductById);
-router.put("/:id", protect, isAdmin, updateProduct);
-router.delete("/:id", protect, isAdmin, deleteProduct);
-router.get("/low-stock", lowStockProducts);
+productRoutes.put("/:id", protect, isAdmin, updateProduct);
+productRoutes.delete("/:id", protect, isAdmin, deleteProduct);
+productRoutes.get("/low-stock", lowStockProducts);
 
-export default router;
+export default productRoutes;

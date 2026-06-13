@@ -8,11 +8,11 @@ getPurchases
 from "../controllers/Purchase_Controller.js";
 import { isAdmin, protect } from "../Middleware/middleware.js";
 
-const router = express.Router();
+const PurchaseRoutes = express.Router();
 
-router.post("/",protect,isAdmin,createPurchase);
+PurchaseRoutes.post("/",protect,isAdmin,createPurchase);
 
-router.get("/",protect,isAdmin,getPurchases);
-router.delete("/:id", deletePurchase);
-export default router;
+PurchaseRoutes.get("/",protect,isAdmin,getPurchases);
+PurchaseRoutes.delete("/:id", deletePurchase);
+export default PurchaseRoutes;
 //localhost:5000/Api/purchase

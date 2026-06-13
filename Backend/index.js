@@ -6,7 +6,7 @@ import dns from "dns";
 import productRoutes from "./Routes/productRoutes.js";
 import userRoutes from "./Routes/userRoutes.js";
 import billroute from "./Routes/BillingRoute.js";
-import SupplierRoutes from "./Routes/Supplier_Routes.js";
+import router from "./Routes/Supplier_Routes.js";
 import PurchaseRoutes from "./Routes/Purchase_Routes.js";
 import DashboardRoutes from "./Routes/Dashboard_Routes.js";
 dns.setServers(["1.1.1.1", "8.8.8.8"])
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use('/Api', productRoutes);
 app.use('/Api', userRoutes);
 app.use("/Api", billroute);
-app.use("/Api/suppliers", SupplierRoutes);
+app.use("/Api/suppliers", router);
 app.use("/Api/purchases", PurchaseRoutes);
 app.use("/Api/dashboard", DashboardRoutes);
 app.listen(PORT, () => {
