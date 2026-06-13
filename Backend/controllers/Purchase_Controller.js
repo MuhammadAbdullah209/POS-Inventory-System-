@@ -1,5 +1,5 @@
 import { Purchase }
-from "../Models/Purchase_Model.js";
+from "../Models/Purchase_model.js";
 
 import { Product }
 from "../Models/Product_Model.js";
