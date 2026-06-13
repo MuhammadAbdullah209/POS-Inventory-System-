@@ -3,7 +3,7 @@ import express from "express";
 import {
 dashboardStats
 }
-from "../Controllers/Dashboard_Controller.js";
+from "../controllers/Dashboard_Controller.js";
 
 const router = express.Router();
 

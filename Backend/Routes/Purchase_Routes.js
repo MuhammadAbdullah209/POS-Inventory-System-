@@ -5,7 +5,7 @@ createPurchase,
     deletePurchase,
 getPurchases
 }
-from "../Controllers/Purchase_Controller.js";
+from "../controllers/Purchase_Controller.js";
 import { isAdmin, protect } from "../Middleware/middleware.js";
 
 const router = express.Router();
