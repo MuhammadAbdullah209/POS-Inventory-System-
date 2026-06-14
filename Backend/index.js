@@ -11,14 +11,17 @@ import PurchaseRoutes from "./Routes/Purchase_Routes.js";
 import DashboardRoutes from "./Routes/Dashboard_Routes.js";
 dns.setServers(["1.1.1.1", "8.8.8.8"])
 
-Dbconnector();
+await Dbconnector();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 
-app.get("/", (req, res) => res.json({ message: "API is running" }));
+app.get("/", (req, res) => res.json({
+    message: "API is running", mongodbUrlExists: !!process.env.MONGODB_URL,
+    nodeEnv: process.env.NODE_ENV
+}));
 
 // Routes
 app.use('/Api', productRoutes);
