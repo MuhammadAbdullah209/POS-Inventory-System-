@@ -18,10 +18,23 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/", (req, res) => res.json({
-    message: "API is running", mongodbUrlExists: !!process.env.MONGODB_URL,
-    nodeEnv: process.env.NODE_ENV
-}));
+app.get("/", (req, res) => {
+    res.send(`
+        <html>
+            <body style="
+                background:#111;
+                color:white;
+                font-family:Arial;
+                text-align:center;
+                padding-top:100px;
+            ">
+                <h1 style="color:lime;">API is Running </h1>
+                <p>MongoDB URL Exists: ${!!process.env.MONGODB_URL}</p>
+                <p>NODE_ENV: ${process.env.NODE_ENV}</p>
+            </body>
+        </html>
+    `);
+});
 
 // Routes
 app.use('/Api', productRoutes);
