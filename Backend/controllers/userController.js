@@ -7,12 +7,12 @@ export const login = async (req, res) => {
         if (!email || !password) {
             return res.status(400).json({ message: "All fields are required!" });
         }
-        // normalize FIRST
+        
         email = email.trim().toLowerCase();
         if (!email.endsWith("@gmail.com")) {
             return res.status(400).json({ message: "Invalid Email" });
         }
-        // IMPORTANT: normalized query
+        
         const user = await User.findOne({
             email: { $regex: `^${email}$`, $options: "i" }
         });

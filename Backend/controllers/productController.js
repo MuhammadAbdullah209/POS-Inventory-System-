@@ -80,7 +80,7 @@ export const createProduct = async (req, res) => {
 export const getProducts = async (req, res) => {
     try {
         const products = await Product.find();
-        return res.json(products);
+        return res.status(200).json({ message: "Products fetched successfully", products });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -185,7 +185,7 @@ export const scanProduct = async (req, res) => {
         if (variant.stock <= 0) {
             return res.status(400).json({ message: "Out of stock" });
         }
-        res.json({
+        return res.status(200).json({
             message: "Product scanned",
             product: product.name,
             variant
@@ -308,7 +308,7 @@ export const lowStockProducts = async (req, res) => {
                 }
             );
         });
-        return res.json(lowStock);
+        return res.status(200).json(lowStock);
     }
     catch (error) {
         return res.status(500)
