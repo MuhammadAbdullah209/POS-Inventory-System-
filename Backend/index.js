@@ -14,6 +14,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 // Routes
+app.use("/", (req, res) => {
+    try {
+        return res.status(200).json({ message: "Api is Working Successfully!" })
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+})
 app.use('/Api', productRoutes);
 app.use('/Api', userRoutes);
 app.use("/Api", billroute);
